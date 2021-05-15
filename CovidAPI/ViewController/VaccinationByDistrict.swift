@@ -17,41 +17,72 @@ class VaccinationByDistrict: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        let id = session[indexPath.row].value(forKey: "center_id") as? Int ?? 0
-        cell.textLabel?.text = "ID: \(id)"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! VaccinationByDistrictTVC
+        
         let name = session[indexPath.row].value(forKey: "name") as? String ?? "Empty"
-        cell.detailTextLabel?.text = "Name: \(name)"
+        cell.nameLb.text = "Center: \(name)"
+        
+        let id = session[indexPath.row].value(forKey: "center_id") as? Int ?? 0
+        cell.idLb.text = "Id: \(id)"
+        
+        cell.detailBtn.tag = indexPath.row
+        cell.detailBtn.addTarget(self, action: #selector(viewDetailsPressed(sender:)), for: .touchUpInside)
         cell.backgroundColor = UIColor.lightGray
         
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         0.1
     }
-    func vaccinationApi()
-    {
-        AF.request("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=\(id)&date=\(date)").responseJSON{(resp) in
-            print("\(self.id) \(self.date)")
-            if let  data = resp.value as? NSDictionary {
-                self.actInd.stopAnimating()
-                self.session = data.value(forKey: "sessions") as! [NSDictionary]
-                print(self.session)
-                self.TV.reloadData()
-                if self.session.count == 0 {
-                    self.TV.isHidden = true
-                    let alert = UIAlertController(title: "No Data Found!", message: "The District You Are Searching For Has No Vaccination Currently", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-            else {
-                print("error ")
-            }
-        }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
+    func showErr(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel) { alert in
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func vaccinationApi()
+    {
+        if Connectivity.isConnectedToInternet() {
+            
+            AF.request("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=\(id)&date=\(date)").responseJSON{(resp) in
+                print("\(self.id) \(self.date)")
+                if let  data = resp.value as? NSDictionary {
+                    self.actInd.stopAnimating()
+                    self.session = data.value(forKey: "sessions") as! [NSDictionary]
+                    print(self.session)
+                    self.TV.reloadData()
+                    if self.session.count == 0 {
+                        self.TV.isHidden = true
+                        let alert = UIAlertController(title: "No Data Found!", message: "The District You Are Searching For Has No Vaccination Currently", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert.addAction(ok)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
+                    else {
+                        print("error ")
+                    }
+                }
+            }
+        }
+        
+        else {
+            
+            self.actInd.isHidden = true
+            showErr(title: "No Internet Connection!!", message: "Please Check Your Internet Connection and Try Again")
+        }
+    }
     
     @IBOutlet weak var TV: UITableView!
     override func viewDidLoad() {
@@ -63,6 +94,60 @@ class VaccinationByDistrict: UIViewController,UITableViewDelegate,UITableViewDat
     }
     @objc func homeBtn() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func viewDetailsPressed(sender: UIButton){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! DetailVC
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        
+        let address = session[indexPath.row].value(forKey: "address") as? String ?? "Address Unavailable"
+        if address == "" {
+            vc.address = "Address Unavailable"
+        }
+        else {
+            vc.address = "Address: \(address)"
+        }
+        
+        let fromTime = session[indexPath.row].value(forKey: "from") as? String ?? "Time Unavailable"
+        let toTime = session[indexPath.row].value(forKey: "to") as? String ?? "Time Unavailable"
+        if fromTime == "" || toTime == "" {
+            vc.from = "Time Unavailable"
+        }
+        
+        else {
+            vc.from = "Time: \(fromTime) to \(toTime)"
+        }
+        
+        
+        let fees = session[indexPath.row].value(forKey: "fee_type") as? String ?? "Fees Unavailable"
+        if fees == "Paid" {
+            vc.fees = "Paid"
+        }
+        
+        else {
+            vc.fees = "Free"
+        }
+        
+        let vaccine = session[indexPath.row].value(forKey: "vaccine") as? String ?? "Vaccine Name Unavailable"
+        if vaccine == "" {
+            vc.vaccineName = "Vaccine Name Unavailable"
+        }
+        
+        else
+        {
+            vc.vaccineName = "Vaccine: \(vaccine)"
+        }
+        
+        let availableSlots = session[indexPath.row].value(forKey: "slots") as! [String]
+        let time = availableSlots.joined(separator: ",")
+        if availableSlots.isEmpty {
+            vc.slots = "Slots Unavailable"
+        }
+        else {
+            vc.slots = "Slots: \(time)"
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

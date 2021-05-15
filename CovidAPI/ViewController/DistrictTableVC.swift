@@ -47,20 +47,38 @@ class DistrictTableVC: UIViewController,UITableViewDelegate,UITableViewDataSourc
     }
     func api()
     {
-        AF.request("https://cdn-api.co-vin.in/api/v2/admin/location/districts/\(stateID)").responseJSON{(resp) in
-            if let  data = resp.value as? NSDictionary {
-                self.actInd.stopAnimating()
-                self.district = data.value(forKey: "districts") as! [NSDictionary]
-                print(self.district)
-                self.TV.reloadData()
-            }
-            else {
-                print("error ")
+        if Connectivity.isConnectedToInternet() {
+            
+            AF.request("https://cdn-api.co-vin.in/api/v2/admin/location/districts/\(stateID)").responseJSON{(resp) in
+                if let  data = resp.value as? NSDictionary {
+                    self.actInd.stopAnimating()
+                    self.district = data.value(forKey: "districts") as! [NSDictionary]
+                    print(self.district)
+                    self.TV.reloadData()
+                }
+                else {
+                    print("error ")
+                }
             }
         }
+        else {            
+            self.actInd.isHidden = true
+            showErr(title: "No Internet Connection!!", message: "Please Check Your Internet Connection and Try Again")
+        }
     }
+    
     @objc func  homeBtn() {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showErr(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel) { alert in
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 }

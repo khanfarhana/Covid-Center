@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B0FB05562ED6B176008A6262 /* Pods_CovidAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A3C8BCD2BB7953DD2341ED /* Pods_CovidAPI.framework */; };
+		BB06CD53264EEA1D00562B47 /* IntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB06CD52264EEA1D00562B47 /* IntroductionVC.swift */; };
+		BB06CD55264EEA4300562B47 /* CustomCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB06CD54264EEA4300562B47 /* CustomCVC.swift */; };
+		BB06CD57264EEF3600562B47 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB06CD56264EEF3600562B47 /* CustomView.swift */; };
 		BB1A2F61264C725700596B31 /* covid.json in Resources */ = {isa = PBXBuildFile; fileRef = BB1A2F60264C725700596B31 /* covid.json */; };
 		BB2B645E2645762F0068F56F /* Splash.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BB2B645D2645762F0068F56F /* Splash.jpeg */; };
 		BB7D54802644663E008BAD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D547F2644663E008BAD33 /* AppDelegate.swift */; };
@@ -16,6 +19,7 @@
 		BB7D54892644663F008BAD33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB7D54882644663F008BAD33 /* Assets.xcassets */; };
 		BB7D548C2644663F008BAD33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7D548A2644663F008BAD33 /* LaunchScreen.storyboard */; };
 		BB7D54942644666F008BAD33 /* CustomTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D54932644666F008BAD33 /* CustomTVC.swift */; };
+		BB8A5B0E264FC096006544B3 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8A5B0D264FC096006544B3 /* Connectivity.swift */; };
 		BB8E0CE5264C316800778844 /* PinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CE4264C316800778844 /* PinVC.swift */; };
 		BB8E0CE7264C317300778844 /* DistrictVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CE6264C317300778844 /* DistrictVC.swift */; };
 		BB8E0CE9264C3C2500778844 /* StateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CE8264C3C2500778844 /* StateVC.swift */; };
@@ -23,11 +27,25 @@
 		BB8E0CEE264C542D00778844 /* VaccinationByDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CED264C542D00778844 /* VaccinationByDistrict.swift */; };
 		BB8E0CF0264C5DCE00778844 /* VaccinationByPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CEF264C5DCE00778844 /* VaccinationByPin.swift */; };
 		BB8E0CF2264C613E00778844 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8E0CF1264C613E00778844 /* HomeVC.swift */; };
+		BBEAFCEC264F0207008556C3 /* sanitizer.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE4264F0207008556C3 /* sanitizer.json */; };
+		BBEAFCED264F0207008556C3 /* medical.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE5264F0207008556C3 /* medical.json */; };
+		BBEAFCEE264F0207008556C3 /* home.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE6264F0207008556C3 /* home.json */; };
+		BBEAFCEF264F0207008556C3 /* eat.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE7264F0207008556C3 /* eat.json */; };
+		BBEAFCF0264F0207008556C3 /* face.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE8264F0207008556C3 /* face.json */; };
+		BBEAFCF1264F0207008556C3 /* hands.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCE9264F0207008556C3 /* hands.json */; };
+		BBEAFCF2264F0207008556C3 /* mask.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCEA264F0207008556C3 /* mask.json */; };
+		BBEAFCF3264F0207008556C3 /* distance.json in Resources */ = {isa = PBXBuildFile; fileRef = BBEAFCEB264F0207008556C3 /* distance.json */; };
+		BBEAFCF7264F185A008556C3 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEAFCF6264F185A008556C3 /* DetailVC.swift */; };
+		BBEAFCF9264F1CD1008556C3 /* VaccinationByDistrictTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEAFCF8264F1CD1008556C3 /* VaccinationByDistrictTVC.swift */; };
+		BBEDA3E6264F235C00FC066C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEDA3E5264F235C00FC066C /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		496FE0084A6BDEA057EBF690 /* Pods-CovidAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidAPI.release.xcconfig"; path = "Target Support Files/Pods-CovidAPI/Pods-CovidAPI.release.xcconfig"; sourceTree = "<group>"; };
 		51F013A0599BF715181C49BE /* Pods-CovidAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidAPI.debug.xcconfig"; path = "Target Support Files/Pods-CovidAPI/Pods-CovidAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		BB06CD52264EEA1D00562B47 /* IntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionVC.swift; sourceTree = "<group>"; };
+		BB06CD54264EEA4300562B47 /* CustomCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCVC.swift; sourceTree = "<group>"; };
+		BB06CD56264EEF3600562B47 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BB1A2F60264C725700596B31 /* covid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = covid.json; sourceTree = "<group>"; };
 		BB2B645D2645762F0068F56F /* Splash.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash.jpeg; sourceTree = "<group>"; };
 		BB7D547C2644663E008BAD33 /* CovidAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +56,7 @@
 		BB7D548B2644663F008BAD33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB7D548D2644663F008BAD33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7D54932644666F008BAD33 /* CustomTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTVC.swift; sourceTree = "<group>"; };
+		BB8A5B0D264FC096006544B3 /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		BB8E0CE4264C316800778844 /* PinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinVC.swift; sourceTree = "<group>"; };
 		BB8E0CE6264C317300778844 /* DistrictVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictVC.swift; sourceTree = "<group>"; };
 		BB8E0CE8264C3C2500778844 /* StateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateVC.swift; sourceTree = "<group>"; };
@@ -45,6 +64,17 @@
 		BB8E0CED264C542D00778844 /* VaccinationByDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationByDistrict.swift; sourceTree = "<group>"; };
 		BB8E0CEF264C5DCE00778844 /* VaccinationByPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationByPin.swift; sourceTree = "<group>"; };
 		BB8E0CF1264C613E00778844 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		BBEAFCE4264F0207008556C3 /* sanitizer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sanitizer.json; sourceTree = "<group>"; };
+		BBEAFCE5264F0207008556C3 /* medical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medical.json; sourceTree = "<group>"; };
+		BBEAFCE6264F0207008556C3 /* home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home.json; sourceTree = "<group>"; };
+		BBEAFCE7264F0207008556C3 /* eat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = eat.json; sourceTree = "<group>"; };
+		BBEAFCE8264F0207008556C3 /* face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face.json; sourceTree = "<group>"; };
+		BBEAFCE9264F0207008556C3 /* hands.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hands.json; sourceTree = "<group>"; };
+		BBEAFCEA264F0207008556C3 /* mask.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mask.json; sourceTree = "<group>"; };
+		BBEAFCEB264F0207008556C3 /* distance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = distance.json; sourceTree = "<group>"; };
+		BBEAFCF6264F185A008556C3 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		BBEAFCF8264F1CD1008556C3 /* VaccinationByDistrictTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VaccinationByDistrictTVC.swift; sourceTree = "<group>"; };
+		BBEDA3E5264F235C00FC066C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F8A3C8BCD2BB7953DD2341ED /* Pods_CovidAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +110,8 @@
 		BB7D54732644663E008BAD33 = {
 			isa = PBXGroup;
 			children = (
+				BBEAFCF5264F0E5A008556C3 /* Model */,
+				BBEAFCF4264F0E41008556C3 /* Views */,
 				BB7D547E2644663E008BAD33 /* CovidAPI */,
 				BB7D547D2644663E008BAD33 /* Products */,
 				48F954717EAD11564DE3D8BA /* Pods */,
@@ -103,8 +135,15 @@
 				BB7D54812644663E008BAD33 /* SceneDelegate.swift */,
 				BB7D54852644663E008BAD33 /* Main.storyboard */,
 				BB7D54882644663F008BAD33 /* Assets.xcassets */,
-				BB7D54932644666F008BAD33 /* CustomTVC.swift */,
 				BB7D548A2644663F008BAD33 /* LaunchScreen.storyboard */,
+				BBEAFCE5264F0207008556C3 /* medical.json */,
+				BBEAFCEB264F0207008556C3 /* distance.json */,
+				BBEAFCE7264F0207008556C3 /* eat.json */,
+				BBEAFCE8264F0207008556C3 /* face.json */,
+				BBEAFCE9264F0207008556C3 /* hands.json */,
+				BBEAFCE6264F0207008556C3 /* home.json */,
+				BBEAFCEA264F0207008556C3 /* mask.json */,
+				BBEAFCE4264F0207008556C3 /* sanitizer.json */,
 				BB7D548D2644663F008BAD33 /* Info.plist */,
 				BB2B645D2645762F0068F56F /* Splash.jpeg */,
 				BB1A2F60264C725700596B31 /* covid.json */,
@@ -115,15 +154,37 @@
 		BB8E0CEC264C482C00778844 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BB06CD52264EEA1D00562B47 /* IntroductionVC.swift */,
 				BB8E0CE8264C3C2500778844 /* StateVC.swift */,
 				BB8E0CE4264C316800778844 /* PinVC.swift */,
 				BB8E0CE6264C317300778844 /* DistrictVC.swift */,
 				BB8E0CF1264C613E00778844 /* HomeVC.swift */,
+				BBEAFCF6264F185A008556C3 /* DetailVC.swift */,
 				BB8E0CEA264C41C900778844 /* DistrictTableVC.swift */,
 				BB8E0CED264C542D00778844 /* VaccinationByDistrict.swift */,
 				BB8E0CEF264C5DCE00778844 /* VaccinationByPin.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BBEAFCF4264F0E41008556C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBEAFCF8264F1CD1008556C3 /* VaccinationByDistrictTVC.swift */,
+				BB7D54932644666F008BAD33 /* CustomTVC.swift */,
+				BB06CD54264EEA4300562B47 /* CustomCVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BBEAFCF5264F0E5A008556C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A5B0D264FC096006544B3 /* Connectivity.swift */,
+				BB06CD56264EEF3600562B47 /* CustomView.swift */,
+				BBEDA3E5264F235C00FC066C /* CustomButton.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,9 +248,17 @@
 			files = (
 				BB2B645E2645762F0068F56F /* Splash.jpeg in Resources */,
 				BB7D548C2644663F008BAD33 /* LaunchScreen.storyboard in Resources */,
+				BBEAFCF0264F0207008556C3 /* face.json in Resources */,
+				BBEAFCEF264F0207008556C3 /* eat.json in Resources */,
+				BBEAFCEE264F0207008556C3 /* home.json in Resources */,
+				BBEAFCF3264F0207008556C3 /* distance.json in Resources */,
+				BBEAFCED264F0207008556C3 /* medical.json in Resources */,
 				BB7D54892644663F008BAD33 /* Assets.xcassets in Resources */,
 				BB7D54872644663E008BAD33 /* Main.storyboard in Resources */,
 				BB1A2F61264C725700596B31 /* covid.json in Resources */,
+				BBEAFCF2264F0207008556C3 /* mask.json in Resources */,
+				BBEAFCEC264F0207008556C3 /* sanitizer.json in Resources */,
+				BBEAFCF1264F0207008556C3 /* hands.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,14 +311,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBEAFCF7264F185A008556C3 /* DetailVC.swift in Sources */,
 				BB8E0CF2264C613E00778844 /* HomeVC.swift in Sources */,
+				BB8A5B0E264FC096006544B3 /* Connectivity.swift in Sources */,
 				BB8E0CEB264C41C900778844 /* DistrictTableVC.swift in Sources */,
+				BB06CD53264EEA1D00562B47 /* IntroductionVC.swift in Sources */,
+				BBEDA3E6264F235C00FC066C /* CustomButton.swift in Sources */,
 				BB8E0CF0264C5DCE00778844 /* VaccinationByPin.swift in Sources */,
 				BB8E0CEE264C542D00778844 /* VaccinationByDistrict.swift in Sources */,
 				BB8E0CE7264C317300778844 /* DistrictVC.swift in Sources */,
+				BB06CD57264EEF3600562B47 /* CustomView.swift in Sources */,
+				BBEAFCF9264F1CD1008556C3 /* VaccinationByDistrictTVC.swift in Sources */,
 				BB8E0CE9264C3C2500778844 /* StateVC.swift in Sources */,
 				BB8E0CE5264C316800778844 /* PinVC.swift in Sources */,
 				BB7D54802644663E008BAD33 /* AppDelegate.swift in Sources */,
+				BB06CD55264EEA4300562B47 /* CustomCVC.swift in Sources */,
 				BB7D54942644666F008BAD33 /* CustomTVC.swift in Sources */,
 				BB7D54822644663E008BAD33 /* SceneDelegate.swift in Sources */,
 			);

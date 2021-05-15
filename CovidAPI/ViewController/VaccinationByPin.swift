@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 class VaccinationByPin: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var actIn: UIActivityIndicatorView!
     var session = [NSDictionary]()
     var pincode = String()
@@ -26,6 +27,7 @@ class VaccinationByPin: UIViewController,UITableViewDelegate,UITableViewDataSour
         cell.backgroundColor = UIColor.lightGray
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         0.1
     }
@@ -38,28 +40,47 @@ class VaccinationByPin: UIViewController,UITableViewDelegate,UITableViewDataSour
         //        self.navigationItem.title = "Pincode"
         vaccinationApi()
     }
-    func vaccinationApi()
-    {
-        AF.request("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=\(pincode)&date=\(date)").responseJSON{(resp) in
-            print("\(self.pincode) \(self.date)")
-            if let  data = resp.value as? NSDictionary {
-                self.actIn.stopAnimating()
-                self.session = data.value(forKey: "sessions") as! [NSDictionary]
-                print(self.session)
-                self.TV.reloadData()
-                if self.session.count == 0 {
-                    self.TV.isHidden = true
-                    let alert = UIAlertController(title: "No Data Found!", message: "The District You Are Searching For Has No Vaccination Currently", preferredStyle: .alert)
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alert.addAction(ok)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-            else {
-                print("error ")
-            }
+    
+    func showErr(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel) { alert in
+            
+            self.navigationController?.popViewController(animated: true)
         }
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
     
-    
+    func vaccinationApi()
+    {
+        
+        if Connectivity.isConnectedToInternet() {
+            
+            AF.request("https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=\(pincode)&date=\(date)").responseJSON{(resp) in
+                print("\(self.pincode) \(self.date)")
+                if let  data = resp.value as? NSDictionary {
+                    self.actIn.stopAnimating()
+                    self.session = data.value(forKey: "sessions") as! [NSDictionary]
+                    print(self.session)
+                    self.TV.reloadData()
+                    if self.session.count == 0 {
+                        self.TV.isHidden = true
+                        let alert = UIAlertController(title: "No Data Found!", message: "The District You Are Searching For Has No Vaccination Currently", preferredStyle: .alert)
+                        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert.addAction(ok)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                
+                else {
+                    print("error ")
+                }
+            }
+        }
+        
+        else {
+            self.actIn.isHidden = true
+            showErr(title: "No Internet Connection!!", message: "Please Check Your Internet Connection and Try Again")
+        }
+    }
 }

@@ -25,12 +25,14 @@ class StateVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
         cell.detailTextLabel?.text = "State: \(name)"
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "DistrictTableVC") as! DistrictTableVC
         vc.stateID = state[indexPath.row].value(forKey: "state_id") as? Int ?? 0
         print(vc.stateID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
@@ -46,16 +48,36 @@ class StateVC: UIViewController,UITableViewDelegate,UITableViewDataSource{
     }
     func api()
     {
-        AF.request("https://cdn-api.co-vin.in/api/v2/admin/location/states").responseJSON{(resp) in
-            if let  data = resp.value as? NSDictionary {
-                self.actInd.stopAnimating()
-                self.state = data.value(forKey: "states") as! [NSDictionary]
-                print(self.state)
-                self.TV.reloadData()
-            }
-            else {
-                print("error ")
+        if Connectivity.isConnectedToInternet() {
+            AF.request("https://cdn-api.co-vin.in/api/v2/admin/location/states").responseJSON{(resp) in
+                if let  data = resp.value as? NSDictionary {
+                    self.actInd.stopAnimating()
+                    self.state = data.value(forKey: "states") as! [NSDictionary]
+                    print(self.state)
+                    self.TV.reloadData()
+                }
+                else {
+                    print("error ")
+                }
             }
         }
+        
+        else {
+            self.actInd.stopAnimating()
+            self.actInd.isHidden = true
+            showErr(title: "No Internet Connection!!", message: "Please Check Your Internet Connection and Try Again")
+        }
     }
+    
+    func showErr(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .cancel) { alert in
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
