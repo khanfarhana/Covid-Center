@@ -285,14 +285,72 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="fl8-w3-9fl">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="163" id="fl8-w3-9fl" customClass="VaccinationByPinTVC" customModule="CovidAPI" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fl8-w3-9fl" id="zgo-NL-e9M">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="101"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="163"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y62-iP-xXR">
+                                                    <rect key="frame" x="16" y="10.5" width="252" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ieq-5f-UfF">
+                                                    <rect key="frame" x="16" y="109.5" width="348" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6TC-Ul-vac" customClass="CustomButton" customModule="CovidAPI" customModuleProvider="target">
+                                                    <rect key="frame" x="278" y="63.5" width="80" height="36"/>
+                                                    <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="SxD-gF-KRu"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="Details">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.070394449299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <font key="NSFont" metaFont="system" size="20"/>
+                                                                    <integer key="NSUnderline" value="1"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.17254901959999999" green="0.17254901959999999" blue="0.070394449299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Y62-iP-xXR" firstAttribute="leading" secondItem="zgo-NL-e9M" secondAttribute="leading" constant="16" id="RKf-lm-Icn"/>
+                                                <constraint firstItem="Ieq-5f-UfF" firstAttribute="leading" secondItem="zgo-NL-e9M" secondAttribute="leading" constant="16" id="eO2-LD-g1c"/>
+                                                <constraint firstItem="6TC-Ul-vac" firstAttribute="centerY" secondItem="zgo-NL-e9M" secondAttribute="centerY" id="g2r-ab-3As"/>
+                                                <constraint firstItem="6TC-Ul-vac" firstAttribute="leading" secondItem="Y62-iP-xXR" secondAttribute="trailing" constant="10" id="i25-cs-hlD"/>
+                                                <constraint firstAttribute="trailing" secondItem="6TC-Ul-vac" secondAttribute="trailing" constant="16" id="jti-46-mK1"/>
+                                                <constraint firstItem="Y62-iP-xXR" firstAttribute="top" secondItem="zgo-NL-e9M" secondAttribute="top" constant="10.5" id="loA-o1-3Mc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ieq-5f-UfF" secondAttribute="trailing" constant="10" id="sdK-df-S6S"/>
+                                                <constraint firstItem="Ieq-5f-UfF" firstAttribute="top" secondItem="6TC-Ul-vac" secondAttribute="bottom" constant="10" id="uAk-7Z-JSr"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailsBtn" destination="6TC-Ul-vac" id="kRk-SI-VpZ"/>
+                                            <outlet property="idLb" destination="Y62-iP-xXR" id="Q8b-6g-wsC"/>
+                                            <outlet property="nameLb" destination="Ieq-5f-UfF" id="Rqy-To-W97"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -755,7 +813,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.070394449299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.86274516580000005" green="0.83068715276769023" blue="0.69690320231109038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.070394449299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -865,6 +923,9 @@
         </designable>
         <designable name="683-qa-n3g">
             <size key="intrinsicContentSize" width="169" height="36"/>
+        </designable>
+        <designable name="6TC-Ul-vac">
+            <size key="intrinsicContentSize" width="60" height="36"/>
         </designable>
         <designable name="Rva-0d-yFC">
             <size key="intrinsicContentSize" width="60" height="36"/>

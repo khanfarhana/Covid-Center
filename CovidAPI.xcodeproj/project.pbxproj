@@ -13,6 +13,7 @@
 		BB06CD57264EEF3600562B47 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB06CD56264EEF3600562B47 /* CustomView.swift */; };
 		BB1A2F61264C725700596B31 /* covid.json in Resources */ = {isa = PBXBuildFile; fileRef = BB1A2F60264C725700596B31 /* covid.json */; };
 		BB2B645E2645762F0068F56F /* Splash.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BB2B645D2645762F0068F56F /* Splash.jpeg */; };
+		BB2B70872659AD9B00ED46C3 /* VaccinationByPinTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2B70862659AD9B00ED46C3 /* VaccinationByPinTVC.swift */; };
 		BB7D54802644663E008BAD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D547F2644663E008BAD33 /* AppDelegate.swift */; };
 		BB7D54822644663E008BAD33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D54812644663E008BAD33 /* SceneDelegate.swift */; };
 		BB7D54872644663E008BAD33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7D54852644663E008BAD33 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		BB06CD56264EEF3600562B47 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BB1A2F60264C725700596B31 /* covid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = covid.json; sourceTree = "<group>"; };
 		BB2B645D2645762F0068F56F /* Splash.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash.jpeg; sourceTree = "<group>"; };
+		BB2B70862659AD9B00ED46C3 /* VaccinationByPinTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationByPinTVC.swift; sourceTree = "<group>"; };
 		BB7D547C2644663E008BAD33 /* CovidAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7D547F2644663E008BAD33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB7D54812644663E008BAD33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				BBEAFCF8264F1CD1008556C3 /* VaccinationByDistrictTVC.swift */,
+				BB2B70862659AD9B00ED46C3 /* VaccinationByPinTVC.swift */,
 				BB7D54932644666F008BAD33 /* CustomTVC.swift */,
 				BB06CD54264EEA4300562B47 /* CustomCVC.swift */,
 			);
@@ -323,6 +326,7 @@
 				BB06CD57264EEF3600562B47 /* CustomView.swift in Sources */,
 				BBEAFCF9264F1CD1008556C3 /* VaccinationByDistrictTVC.swift in Sources */,
 				BB8E0CE9264C3C2500778844 /* StateVC.swift in Sources */,
+				BB2B70872659AD9B00ED46C3 /* VaccinationByPinTVC.swift in Sources */,
 				BB8E0CE5264C316800778844 /* PinVC.swift in Sources */,
 				BB7D54802644663E008BAD33 /* AppDelegate.swift in Sources */,
 				BB06CD55264EEA4300562B47 /* CustomCVC.swift in Sources */,
