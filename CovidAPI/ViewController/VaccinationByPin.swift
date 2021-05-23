@@ -19,12 +19,12 @@ class VaccinationByPin: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-//        let id = session[indexPath.row].value(forKey: "center_id") as? Int ?? 0
-//        cell.textLabel?.text = "ID: \(id)"
-//        let name = session[indexPath.row].value(forKey: "name") as? String ?? "Empty"
-//        cell.detailTextLabel?.text = "Name: \(name)"
-//        cell.backgroundColor = UIColor.lightGray
+        //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        //        let id = session[indexPath.row].value(forKey: "center_id") as? Int ?? 0
+        //        cell.textLabel?.text = "ID: \(id)"
+        //        let name = session[indexPath.row].value(forKey: "name") as? String ?? "Empty"
+        //        cell.detailTextLabel?.text = "Name: \(name)"
+        //        cell.backgroundColor = UIColor.lightGray
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! VaccinationByPinTVC
         
         let name = session[indexPath.row].value(forKey: "name") as? String ?? "Empty"
@@ -52,7 +52,7 @@ class VaccinationByPin: UIViewController,UITableViewDelegate,UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         applyGradient(colors: [ #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1),#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1),#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1),#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1) ])
-        actIn.isHidden = true
+        actInd.hidesWhenStopped = true
         self.navigationController?.navigationBar.isHidden = false
         //        self.navigationItem.title = "Pincode"
         vaccinationApi()
